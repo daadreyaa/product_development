@@ -33,9 +33,6 @@ class _HomePageState extends State<HomePage> {
               InkWell(
                 onTap: () {
                   Navigator.pushNamed(context, EditProfile.id);
-                  setState(() {
-                    url = FirebaseAuth.instance.currentUser!.photoURL!;
-                  });
                 },
                 child: url != ''
                     ? CircleAvatar(
@@ -49,6 +46,14 @@ class _HomePageState extends State<HomePage> {
                         ),
                         radius: 50.0,
                       ),
+              ),
+              Text(
+                'Welcome ' + user.displayName!,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 25.0,
+                  color: Colors.red,
+                ),
               ),
               Text(
                 'Considering this as Home Page',

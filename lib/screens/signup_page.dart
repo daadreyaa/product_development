@@ -45,6 +45,7 @@ class _SignUpPageState extends State<SignUpPage> {
         )
         .then((value) => print("User Added"))
         .catchError((error) => print("Failed to add user: $error"));
+    _auth.currentUser!.updateDisplayName(username);
   }
 
   @override
