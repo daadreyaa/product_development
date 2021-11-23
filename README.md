@@ -26,22 +26,23 @@ Using Cloud Firestore for storing profile images
 
 Login Page
 
-![Screenshot_1637683778](https://user-images.githubusercontent.com/69839685/143060869-512d502e-1f12-432c-a975-caac6b13b3da.png =600x300)
+![image](https://user-images.githubusercontent.com/69839685/143065915-57c8916f-0d63-48e3-bd15-5a23d14691d2.png)
+
 
 
 SignUp Page
 
-![Screenshot_1637683802](https://user-images.githubusercontent.com/69839685/143060956-84721989-a244-4f83-99a5-4f2190fba9ef.png)
+![image](https://user-images.githubusercontent.com/69839685/143066030-9431e3cc-90c7-4cec-a956-e9362b815dfa.png)
 
 
 Home Page
 
-![Screenshot_1637683866](https://user-images.githubusercontent.com/69839685/143061164-be5cdeac-57eb-4112-a080-0c287b8e66b4.png)
+![image](https://user-images.githubusercontent.com/69839685/143066153-f08b0e2b-f7e9-4d91-9fd3-ecb6c77d920e.png)
 
 
 Profile Page
 
-![Screenshot_1637683911](https://user-images.githubusercontent.com/69839685/143061223-c07ee02b-280e-4b44-aa2e-f9a370cced37.png)
+![image](https://user-images.githubusercontent.com/69839685/143066278-6b63c026-d3fd-46e0-a21e-7019563139fc.png)
 
 
 Only for Admins
@@ -51,8 +52,7 @@ Only for Admins
 
 else
 
-![Screenshot_1637683934](https://user-images.githubusercontent.com/69839685/143061340-3f208601-cd22-48e3-a63d-aea05a84cf32.png)
-
+![image](https://user-images.githubusercontent.com/69839685/143066206-81ca72b1-4506-4d10-be21-86f79de2ccbc.png)
 
 
 
