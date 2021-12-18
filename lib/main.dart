@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:product_development/screens/achievements_page.dart';
 import 'package:product_development/screens/forgot_password.dart';
 import 'package:product_development/screens/home_page.dart';
 import 'package:product_development/screens/login_page.dart';
@@ -7,6 +8,7 @@ import 'package:product_development/screens/signup_page.dart';
 import 'package:product_development/screens/splash_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:product_development/screens/update_user_roles.dart';
+import 'screens/chat_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -34,6 +36,8 @@ class MyApp extends StatelessWidget {
         ForgotPassword.id: (context) => ForgotPassword(),
         UpdateUserRoles.id: (context) => UpdateUserRoles(),
         EditProfile.id: (context) => EditProfile(),
+        ChatScreen.id: (context) => ChatScreen(),
+        AchievementsPage.id: (context) => AchievementsPage(),
       },
     );
   }

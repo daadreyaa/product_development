@@ -31,7 +31,7 @@ class _SignUpPageState extends State<SignUpPage> {
     passwordVisibility = false;
   }
 
-  Future<void> addUser(String username, String email) async {
+  Future<void> addUser(String username, String email, String role) async {
     // _auth.currentUser!.updatePhotoURL('fsadfsf');
     // _auth.currentUser!.metadata;
     users
@@ -40,7 +40,7 @@ class _SignUpPageState extends State<SignUpPage> {
           {
             'name': username,
             'email': email,
-            'role': 'User',
+            'role': role,
           },
         )
         .then((value) => print("User Added"))
@@ -295,8 +295,21 @@ class _SignUpPageState extends State<SignUpPage> {
                                     String name = textController1.text.trim();
                                     String email = textController2.text.trim();
                                     String password = textController3.text;
+
+                                    String role;
+
+                                    RegExp expAdmin = RegExp(r"[A-Za-z]+@rajalakshmi.edu.in");
+                                    RegExp expStudent = RegExp(r"[A-Za-z0-9]+@rajalakshmi.edu.in");
+                                    if (expAdmin.hasMatch(email)) {
+                                      role = "Admin";
+                                    } else if (expStudent.hasMatch(email)) {
+                                      role = "Student";
+                                    } else {
+                                      throw ("Not this institute");
+                                    }
+
                                     final newUser = await _auth.createUserWithEmailAndPassword(email: email, password: password);
-                                    addUser(name, email);
+                                    addUser(name, email, role);
                                     print(newUser);
 
                                     Navigator.popAndPushNamed(context, LoginPage.id);

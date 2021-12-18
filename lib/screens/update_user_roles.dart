@@ -18,7 +18,7 @@ class _UpdateUserRolesState extends State<UpdateUserRoles> {
   //   value.data()!['role'];
   // });
 
-  var items = ['User', 'Admin'];
+  var items = ['Student', 'Admin'];
 
   // late String role;
 

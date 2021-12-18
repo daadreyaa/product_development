@@ -38,6 +38,7 @@ dependencies:
   image_picker:
   firebase_storage:
   path:
+  carousel_slider: 
 
 dev_dependencies:
   flutter_test:
