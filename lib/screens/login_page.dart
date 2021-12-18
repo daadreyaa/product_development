@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+import 'package:product_development/screens/admin_page.dart';
 import 'package:product_development/screens/forgot_password.dart';
 import 'package:product_development/screens/home_page.dart';
 import 'package:product_development/screens/signup_page.dart';
@@ -225,6 +226,10 @@ class _LoginPageState extends State<LoginPage> {
                                   try {
                                     final newUser = await _auth.signInWithEmailAndPassword(email: textController1.text.trim(), password: textController2.text);
                                     print(newUser);
+                                    RegExp exp = RegExp(r"[A-Za-z]+@rajalakshmi.edu.in");
+                                    if (exp.hasMatch(textController1.text.trim())) {
+                                      Navigator.popAndPushNamed(context, AdminPage.id);
+                                    }
                                     Navigator.popAndPushNamed(context, HomePage.id);
                                   } on FirebaseAuthException catch (e) {
                                     if (e.code == 'user-not-found') {

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'constants.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-// import 'welcome_screen.dart';
 import 'dart:core';
 
 final FirebaseFirestore _firebaseFirestore = FirebaseFirestore.instance;
@@ -61,7 +60,7 @@ class _ChatScreenState extends State<ChatScreen> {
                 // Navigator.popUntil(context, ModalRoute.withName(WelcomeScreen.id));
               }),
         ],
-        title: Text('⚡️Chat'),
+        title: Text('Just 4M'),
         backgroundColor: Color(0xFF1A1E20),
       ),
       body: SafeArea(
@@ -90,7 +89,7 @@ class _ChatScreenState extends State<ChatScreen> {
                       if (messageText.trim().isNotEmpty) {
                         _firebaseFirestore.collection('messages').add({
                           'text': messageText,
-                          'sender': loggedInUser.displayName,
+                          'sender': loggedInUser.email,
                           'timestamp': DateTime.now(),
                         });
                       }
@@ -164,14 +163,11 @@ class MessageBubble extends StatelessWidget {
       child: Column(
         crossAxisAlignment: isMe ? CrossAxisAlignment.end : CrossAxisAlignment.start,
         children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(
-              sender,
-              style: TextStyle(
-                fontSize: 12.0,
-                color: Colors.red,
-              ),
+          Text(
+            sender,
+            style: TextStyle(
+              fontSize: 12.0,
+              color: Colors.grey.shade600,
             ),
           ),
           Material(

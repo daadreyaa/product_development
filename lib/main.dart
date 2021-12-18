@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:product_development/screens/achievements_page.dart';
+import 'package:product_development/screens/certifications_page.dart';
+import 'package:product_development/screens/events_page.dart';
 import 'package:product_development/screens/forgot_password.dart';
 import 'package:product_development/screens/home_page.dart';
 import 'package:product_development/screens/login_page.dart';
 import 'package:product_development/screens/profile_page.dart';
 import 'package:product_development/screens/signup_page.dart';
+import 'package:product_development/screens/skill_set_page.dart';
 import 'package:product_development/screens/splash_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:product_development/screens/update_user_roles.dart';
@@ -38,6 +41,9 @@ class MyApp extends StatelessWidget {
         EditProfile.id: (context) => EditProfile(),
         ChatScreen.id: (context) => ChatScreen(),
         AchievementsPage.id: (context) => AchievementsPage(),
+        CertificationsPage.id: (context) => CertificationsPage(),
+        SkillSetPage.id: (context) => SkillSetPage(),
+        EventsPage.id: (context) => EventsPage(),
       },
     );
   }

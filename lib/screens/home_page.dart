@@ -4,7 +4,10 @@ import 'package:flutter/services.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:product_development/components/rounded_button.dart';
 import 'package:product_development/screens/achievements_page.dart';
+import 'package:product_development/screens/certifications_page.dart';
+import 'package:product_development/screens/events_page.dart';
 import 'package:product_development/screens/profile_page.dart';
+import 'package:product_development/screens/skill_set_page.dart';
 import 'package:product_development/screens/update_user_roles.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'chat_screen.dart';
@@ -37,7 +40,7 @@ class _HomePageState extends State<HomePage> {
           ),
           // automaticallyImplyLeading: false,
           elevation: 0,
-          backgroundColor: Colors.white,
+          // backgroundColor: Colors.white,
           title: Text(
             'Welcome ' + user.displayName!,
             style: TextStyle(
@@ -47,94 +50,78 @@ class _HomePageState extends State<HomePage> {
 
           // centerTitle: true,
         ),
-        body: Center(
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                InkWell(
-                  onTap: () {
-                    Navigator.pushNamed(context, EditProfile.id);
-                  },
-                  child: url != ''
-                      ? CircleAvatar(
-                          backgroundImage: NetworkImage(url),
-                          radius: 75.0,
-                        )
-                      : CircleAvatar(
-                          child: Icon(
-                            Icons.image,
-                            size: 38.0,
-                          ),
-                          radius: 75.0,
-                        ),
-                ),
-                // SizedBox(
-                //   height: 30,
-                // ),
-                // Text(
-                //   'Welcome ' + user.displayName!,
-                //   textAlign: TextAlign.center,
-                //   style: TextStyle(
-                //     fontSize: 30.0,
-                //     color: Colors.red,
-                //   ),
-                // ),
-                // Text(
-                //   'Considering this as Home Page',
-                //   textAlign: TextAlign.center,
-                //   style: TextStyle(
-                //     fontSize: 30.0,
-                //   ),
-                // ),
-                CarouselSlider(
-                  options: CarouselOptions(height: 400.0),
-                  items: ['Certifications', 'Skill Set', 'Achievements'].map((i) {
-                    return Builder(
-                      builder: (BuildContext context) {
-                        return Container(
-                            width: MediaQuery.of(context).size.width / 1.5,
-                            margin: EdgeInsets.symmetric(horizontal: 5.0),
-                            decoration: BoxDecoration(
-                              color: Colors.amber,
-                              shape: BoxShape.circle,
+        body: Container(
+          width: double.infinity,
+          height: double.infinity,
+          constraints: BoxConstraints(
+            maxWidth: double.infinity,
+            maxHeight: double.infinity,
+          ),
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Color(0xFF0C9AFA), Color(0xFFFFFF5F)],
+              stops: [0, 0.8],
+              begin: AlignmentDirectional(0.64, -1),
+              end: AlignmentDirectional(-0.64, 1),
+            ),
+          ),
+          child: Center(
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  InkWell(
+                    onTap: () {
+                      Navigator.pushNamed(context, EditProfile.id);
+                    },
+                    child: url != ''
+                        ? CircleAvatar(
+                            backgroundImage: NetworkImage(url),
+                            radius: 75.0,
+                          )
+                        : CircleAvatar(
+                            child: Icon(
+                              Icons.image,
+                              size: 38.0,
                             ),
-                            child: InkWell(
-                              onTap: () => Navigator.pushNamed(context, ChatScreen.id),
-                              child: Center(
-                                child: Text(
-                                  '$i',
-                                  style: TextStyle(fontSize: 26.0),
-                                ),
-                              ),
-                            ));
-                      },
-                    );
-                  }).toList(),
-                ),
-                // RoundedButton(
-                //   title: 'Update Roles',
-                //   color: Colors.lightBlueAccent,
-                //   onPressed: () => Navigator.pushNamed(context, UpdateUserRoles.id),
-                // ),
-                // RoundedButton(
-                //   title: 'Logout',
-                //   color: Colors.lightBlueAccent,
-                //   onPressed: () {
-                //     setState(() {
-                //       showSpinner = true;
-                //     });
-                //     FirebaseAuth.instance.signOut();
-                //     SystemNavigator.pop();
-                //     setState(() {
-                //       showSpinner = false;
-                //     });
-                //   },
-                // ),
-              ],
+                            radius: 75.0,
+                          ),
+                  ),
+                  TileForModule(title: 'Events!!', navigation: EventsPage.id),
+                  TileForModule(title: 'Just 4M', navigation: ChatScreen.id),
+                  TileForModule(title: 'Certifications', navigation: CertificationsPage.id),
+                  TileForModule(title: 'Skill Set', navigation: SkillSetPage.id),
+                  TileForModule(title: 'Achievements', navigation: AchievementsPage.id),
+                ],
+              ),
             ),
           ),
         ),
+      ),
+    );
+  }
+}
+
+class TileForModule extends StatelessWidget {
+  const TileForModule({required this.title, required this.navigation});
+
+  final String title;
+  final String navigation;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 18.0, horizontal: 28.0),
+      child: ListTile(
+        onTap: () => Navigator.pushNamed(context, navigation),
+        title: Text(
+          title,
+          style: TextStyle(
+            fontSize: 20.0,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+        trailing: Icon(Icons.arrow_forward),
       ),
     );
   }
